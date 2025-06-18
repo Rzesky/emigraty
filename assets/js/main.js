@@ -66,29 +66,28 @@ $(function () {
     resp.courses.forEach(function (course) {
       html += `
             <div class="col-md-6 col-lg-4">
-                <div class="card shadow-sm h-100 border-0">
-                    <div class="card-body">
-                        <h5 class="card-title mb-2" style="color:#3e62c2;">${
-                          course.title
-                        }</h5>
-                        <div class="mb-2">
-                            <div class="progress" style="height: 22px;">
+                <div class="card course-card h-100">
+                    <div class="course-card-accent">
+                        <span class="course-title-accent">${course.title}</span>
+                        <i class="bi bi-journal-bookmark-fill course-icon"></i>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div class="mb-3">
+                            <div class="progress" style="height: 20px;">
                                 <div class="progress-bar" role="progressbar"
-                                    style="width: ${
-                                      course.progress
-                                    }%; background:#30436b; color:#fff;">
+                                    style="width: ${course.progress}%">
                                     ${course.progress}%
                                 </div>
                             </div>
                         </div>
                         ${
                           course.progress == 100
-                            ? `<span class="badge bg-success mb-2 px-2">ukończony</span>
-                               <a href="certificate.php?course_id=${course.id}" class="glass-btn btn w-100 btn-sm mt-2">
+                            ? `<span class="badge bg-success mb-3 px-2">ukończony</span>
+                               <a href="certificate.php?course_id=${course.id}" class="glass-btn btn w-100 btn-sm mt-auto">
                                     <i class="bi bi-award"></i> Pobierz certyfikat
                                </a>`
-                            : `<span class="badge bg-primary mb-2 px-2">trwa</span>
-                               <a href="learn.php?course_id=${course.id}" class="glass-btn btn w-100 btn-sm mt-2">
+                            : `<span class="badge bg-primary mb-3 px-2">trwa</span>
+                               <a href="learn.php?course_id=${course.id}" class="glass-btn btn w-100 btn-sm mt-auto">
                                     <i class="bi bi-play-circle"></i> Kontynuuj naukę
                                </a>`
                         }

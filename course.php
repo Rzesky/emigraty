@@ -104,8 +104,8 @@ if ($is_logged) {
                     <i class="bi bi-play-circle"></i> Rozpocznij naukę
                   </a>
                 <?php else: ?>
-                  <a href="buy.php?course_id=<?php echo $course['id']; ?>" class="btn btn-warning btn-lg me-2">
-                    <i class="bi bi-cart"></i> Kup kurs
+                  <a href="add_course.php?course_id=<?php echo $course['id']; ?>" class="btn btn-warning btn-lg me-2">
+                    <i class="bi bi-cart"></i> Dodaj kurs
                   </a>
                 <?php endif; ?>
               <?php else: ?>

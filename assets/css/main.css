@@ -222,3 +222,13 @@ textarea:focus {
   letter-spacing: 0.01em;
   font-size: 1em;
 }
+
+/* Aktywne kursy - estetyczne paski postępu */
+#user-courses-list .progress {
+  background: var(--primary-grey);
+  border-radius: 10px;
+}
+#user-courses-list .progress-bar {
+  background: var(--primary-blue) !important;
+  font-weight: 600;
+}

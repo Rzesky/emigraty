@@ -44,10 +44,14 @@ if ($module_id) {
       <h2 class="h4 mb-3">Wybierz moduł</h2>
       <div class="module-grid">
         <?php foreach ($modules as $m): ?>
-          <div class="card module-card">
-            <div class="module-header">
-              <span class="module-title"><?php echo htmlspecialchars($m['title']); ?></span>
-              <a href="learn.php?course_id=<?php echo $course_id; ?>&module_id=<?php echo $m['id']; ?>" class="btn btn-sm btn-light">
+          <div class="card module-card h-100">
+            <div class="module-accent">
+              <span class="module-index">Moduł <?php echo (int)$m['module_order']; ?></span>
+              <i class="bi bi-collection-play module-icon"></i>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="module-title"><?php echo htmlspecialchars($m['title']); ?></h5>
+              <a href="learn.php?course_id=<?php echo $course_id; ?>&module_id=<?php echo $m['id']; ?>" class="glass-btn btn btn-sm mt-auto w-100">
                 <i class="bi bi-play-fill"></i> Start
               </a>
             </div>

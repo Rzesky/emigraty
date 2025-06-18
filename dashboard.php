@@ -58,8 +58,8 @@ foreach ($active_courses as $course) {
 
   <div class="container">
     <!-- Powitanie i progres -->
-    <div class="section-panel text-center mb-4 shadow-inset">
-      <h2 class="fw-bold mb-1" style="font-size:2.2rem; letter-spacing:-1px;">Witaj, <?php echo htmlspecialchars($user['name'] ?: $user['email']); ?>!</h2>
+    <div class="dashboard-hero mb-4">
+      <h2 class="fw-bold mb-1">Witaj, <?php echo htmlspecialchars($user['name'] ?: $user['email']); ?>!</h2>
       <?php if (!empty($active_courses)): ?>
         <p class="lead text-secondary mt-3 mb-1">
           Twój progres:
@@ -80,7 +80,7 @@ foreach ($active_courses as $course) {
 
     <!-- Aktywne kursy -->
     <div class="section-panel mb-4">
-      <h4 class="mb-4" style="color: #3e62c2;">Aktywne kursy</h4>
+      <h4 class="mb-4 gradient-title">Aktywne kursy</h4>
       <div id="user-courses-list">
         <!-- Tu będą ładowane kursy JS-em -->
         <div class="text-center py-4"><span class="spinner-border"></span> Ładuję kursy...</div>
@@ -92,7 +92,7 @@ foreach ($active_courses as $course) {
     <div class="row g-4 mb-4">
       <div class="col-md-6">
         <div class="section-panel mb-4">
-          <h5 class="mb-3"><i class="bi bi-exclamation-circle"></i> Zwroty do powtórki</h5>
+          <h5 class="mb-3 gradient-title"><i class="bi bi-exclamation-circle"></i> Zwroty do powtórki</h5>
           <?php foreach ($user_mistakes as $mistake): ?>
             <div class="mb-2 pb-2 border-bottom">
               <b class="text-danger"><?php echo htmlspecialchars($mistake['german']); ?></b>
@@ -107,7 +107,7 @@ foreach ($active_courses as $course) {
       </div>
       <div class="col-md-6">
         <div class="section-panel mb-4">
-          <h5 class="mb-3"><i class="bi bi-award"></i> Certyfikaty</h5>
+          <h5 class="mb-3 gradient-title"><i class="bi bi-award"></i> Certyfikaty</h5>
           <?php foreach ($certificates as $cert): ?>
             <div class="mb-2 pb-2 border-bottom">
               <b><?php echo htmlspecialchars($cert['course']); ?></b> &ndash; <?php echo htmlspecialchars($cert['date']); ?>
@@ -123,7 +123,7 @@ foreach ($active_courses as $course) {
 
     <!-- Egzamin końcowy -->
     <div class="section-panel mb-4">
-      <h5 class="mb-3 egzamin-tytul"><i class="bi bi-patch-question"></i> Egzamin końcowy</h5>
+      <h5 class="mb-3 gradient-title"><i class="bi bi-patch-question"></i> Egzamin końcowy</h5>
       <?php if (!empty($final_exams)): ?>
         <ul class="list-group list-group-flush">
           <?php foreach ($final_exams as $exam): ?>
@@ -158,7 +158,7 @@ foreach ($active_courses as $course) {
 
     <!-- Ustawienia -->
     <div class="section-panel mb-5 shadow-inset">
-      <h5 class="mb-3"><i class="bi bi-gear"></i> Ustawienia konta</h5>
+      <h5 class="mb-3 gradient-title"><i class="bi bi-gear"></i> Ustawienia konta</h5>
       <form method="post" action="settings.php" class="row g-3">
         <div class="col-md-6">
           <label class="form-label settings-label" for="name">Imię</label>

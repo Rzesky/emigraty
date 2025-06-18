@@ -333,3 +333,27 @@ textarea:focus {
   margin-top: 18px;
   animation: fadein 1.2s cubic-bezier(0.52, 0.01, 0.32, 0.96);
 }
+.dashboard-hero {
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-violet));
+  color: #fff;
+  border-radius: 14px;
+  padding: 2.3rem 1.8rem;
+  text-align: center;
+  box-shadow: 0 2px 24px #3a88fd1a;
+}
+.dashboard-hero h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.6rem;
+}
+.dashboard-hero p {
+  margin-bottom: 0;
+  font-size: 1.15rem;
+  color: #e7eef9;
+}
+.gradient-title {
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

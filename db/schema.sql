@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 -- Datenbank: `emigraty`
 --
 
+
 -- --------------------------------------------------------
 
 --
@@ -85,12 +86,16 @@ CREATE TABLE `modules` (
 --
 
 INSERT INTO `modules` (`id`, `course_id`, `title`, `module_order`) VALUES
-(1, 1, 'Wprowadzenie do CNC', 1),
-(2, 1, 'Programowanie maszyn', 2),
-(3, 3, 'Podstawy spawania', 1),
-(4, 3, 'Techniki spawania', 2),
-(5, 11, 'Bezpieczeństwo', 1),
-(6, 11, 'Instalacje w praktyce', 2);
+(1, 1, 'Podstawowa komunikacja', 1),
+(2, 1, 'Pierwszy dzień w pracy', 2),
+(3, 1, 'Obsługa maszyn CNC', 3),
+(4, 1, 'Polecenia i pytania', 4),
+(5, 1, 'Dokumentacja i raporty', 5),
+(6, 1, 'Rozmowy w zespole', 6),
+(7, 3, 'Podstawy spawania', 1),
+(8, 3, 'Techniki spawania', 2),
+(9, 11, 'Bezpieczeństwo', 1),
+(10, 11, 'Instalacje w praktyce', 2);
 
 --
 -- Daten für Tabelle `courses`
@@ -125,6 +130,28 @@ CREATE TABLE `lessons` (
   `polish_text` varchar(255) NOT NULL,
   `lesson_order` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+-- Daten dla tabeli `lessons`
+--
+
+INSERT INTO `lessons` (`id`, `course_id`, `module_id`, `title`, `german_text`, `phonetic_text`, `polish_text`, `lesson_order`) VALUES
+(1, 1, 1, 'Powitanie i pożegnanie', 'Guten Morgen. Auf Wiedersehen.', 'gutn morgn. auf viderezehn.', 'Dzień dobry. Do widzenia.', 1),
+(2, 1, 1, 'Przedstawianie się', 'Ich heiße ...', 'iś hajsse ...', 'Nazywam się ...', 2),
+(3, 1, 1, 'Zwroty grzecznościowe', 'Bitte. Danke.', 'byte. danke.', 'Proszę. Dziękuję.', 3),
+(4, 1, 2, 'Poznawanie zespołu', 'Das ist mein Kollege.', 'das ist majn kolege.', 'To jest mój kolega.', 1),
+(5, 1, 2, 'Plan dnia na hali', 'Schichtbeginn um sechs Uhr.', 'śiśtbeginn um zeks ur.', 'Początek zmiany o szóstej.', 2),
+(6, 1, 2, 'Bezpieczeństwo BHP', 'Bitte Schutzbrille tragen.', 'byte szucbrylle tragen.', 'Proszę nosić okulary ochronne.', 3),
+(7, 1, 3, 'Nazwy części', 'Die Spindel, der Werkzeughalter.', 'di szpindel, der wertcojghalter.', 'Wrzeciono, uchwyt narzędziowy.', 1),
+(8, 1, 3, 'Ustawienie maszyny', 'Maschine einschalten.', 'maszine ajnszalten.', 'Włączyć maszynę.', 2),
+(9, 1, 3, 'Awaryjne zatrzymanie', 'Not-Aus drücken.', 'not-aus dryken.', 'Wcisnąć awaryjny stop.', 3),
+(10, 1, 4, 'Wydawanie poleceń', 'Stellen Sie das Werkstück ein.', 'sztehlen zi das werkśtük ajn.', 'Ustaw detale.', 1),
+(11, 1, 4, 'Proste pytania', 'Was soll ich tun?', 'was zol iś tun?', 'Co mam zrobić?', 2),
+(12, 1, 4, 'Prośba o powtórzenie', 'Können Sie das wiederholen?', 'können zi das widerholen?', 'Czy może pan powtórzyć?', 3),
+(13, 1, 5, 'Wypełnianie kart pracy', 'Arbeitsbericht ausfüllen.', 'arbajtsbericht ausfülen.', 'Wypełnić raport pracy.', 1),
+(14, 1, 5, 'Podstawowe skróty', 'z. B., u. A.', 'tse be, u a', 'np., m.in.', 2),
+(15, 1, 5, 'Zgłaszanie wyników', 'Fertigmeldung geben.', 'fertigmeldunk geben.', 'Podać wynik pracy.', 3),
+(16, 1, 6, 'Krótka rozmowa', 'Wie war dein Wochenende?', 'wi war dain wochenende?', 'Jak minął weekend?', 1),
+(17, 1, 6, 'Uzgadnianie zmian', 'Kannst du heute länger bleiben?', 'kanst du hojte lenger blajben?', 'Czy możesz zostać dłużej?', 2),
+(18, 1, 6, 'Rozwiązywanie problemów', 'Wir haben ein Problem.', 'wir haben ain problem.', 'Mamy problem.', 3);
 
 -- --------------------------------------------------------
 

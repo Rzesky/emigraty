@@ -12,28 +12,29 @@ $(document).ready(function () {
 
     data.forEach(function (course) {
       $list.append(`
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">${course.title}</h5>
-                            <p class="card-text">${course.description}</p>
-                            ${
-                              course.featured == 1
-                                ? '<span class="badge bg-success mb-2">Polecany</span>'
-                                : ""
-                            }
-                            <p class="h5 mb-2">${
-                              parseFloat(course.price) > 0
-                                ? course.price + " zł"
-                                : "Darmowy"
-                            }</p>
-                            <a href="course.php?id=${
-                              course.id
-                            }" class="btn btn-primary w-100">Szczegóły</a>
-                        </div>
-                    </div>
+            <div class="card course-card h-100">
+                <div class="course-card-accent d-flex align-items-center">
+                    <span class="course-title-accent">${course.title}</span>
+                    <i class="bi bi-mortarboard course-icon"></i>
                 </div>
-            `);
+                <div class="card-body d-flex flex-column">
+                    ${
+                      course.featured == 1
+                        ? '<span class="badge bg-success mb-2">Polecany</span>'
+                        : ''
+                    }
+                    <div class="catalog-desc">${course.description}</div>
+                    <span class="catalog-price">${
+                      parseFloat(course.price) > 0
+                        ? course.price + ' zł'
+                        : 'Darmowy'
+                    }</span>
+                    <a href="course.php?id=${course.id}" class="glass-btn btn w-100 mt-auto">
+                        <i class="bi bi-search"></i> Szczegóły
+                    </a>
+                </div>
+            </div>
+        `);
     });
   });
 });

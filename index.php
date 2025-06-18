@@ -38,7 +38,7 @@ if (isset($_SESSION['user_id'], $_SESSION['session_token'])) {
 
   <main>
     <!-- HERO section -->
-    <section class="bg-primary text-white text-center py-5 mb-0">
+    <section class="courses-hero mb-0">
       <div class="container">
         <h1 class="display-4 fw-bold">Niemiecki do pracy w Niemczech</h1>
         <p class="lead mt-3">Tylko praktyczne zwroty. Tylko to, czego naprawdę potrzebujesz, by znaleźć i utrzymać pracę w Niemczech.</p>
@@ -50,7 +50,7 @@ if (isset($_SESSION['user_id'], $_SESSION['session_token'])) {
     <!-- Kursy -->
     <section id="courses" class="container py-5">
       <h2 class="mb-4 text-center">Dostępne kursy</h2>
-      <div class="row" id="courses-list">
+      <div class="course-catalog-list" id="courses-list">
       </div>
       <div class="text-center mt-4">
         <a href="register.php" class="btn btn-success btn-lg">Rozpocznij naukę za darmo</a>

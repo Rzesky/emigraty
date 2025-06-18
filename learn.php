@@ -40,9 +40,11 @@ if ($module_id) {
 </head>
 <body>
   <div class="container py-4">
-    <h1 class="mb-4"><?php echo htmlspecialchars($course['title']); ?></h1>
     <?php if (!$module_id): ?>
-      <h2 class="h4 mb-3">Wybierz moduł</h2>
+      <div class="courses-hero mb-4 text-center">
+        <h1 class="mb-2"><?php echo htmlspecialchars($course['title']); ?></h1>
+        <p>Wybierz moduł i zacznij naukę:</p>
+      </div>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 module-grid">
         <?php foreach ($modules as $m): ?>
           <div class="col">
@@ -62,6 +64,7 @@ if ($module_id) {
         <?php endforeach; ?>
       </div>
     <?php else: ?>
+      <h1 class="mb-4"><?php echo htmlspecialchars($course['title']); ?></h1>
       <p><a href="learn.php?course_id=<?php echo $course_id; ?>" class="btn btn-link">&laquo; Wszystkie moduły</a></p>
         <h2 class="h5 mb-3">Lekcje</h2>
         <?php if ($lessons): ?>

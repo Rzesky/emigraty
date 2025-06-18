@@ -232,3 +232,50 @@ textarea:focus {
   background: var(--primary-blue) !important;
   font-weight: 600;
 }
+
+/* Wygląd modułów i lekcji */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.module-card {
+  background: #fff;
+  border: 1.6px solid var(--primary-grey);
+  border-radius: 14px;
+  box-shadow: 0 4px 20px #3a88fd1c;
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+.module-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px #3a88fd2f;
+}
+.module-header {
+  background: var(--primary-blue);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.module-title {
+  font-weight: 600;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+.lesson-card {
+  background: #fff;
+  border: 1.6px solid var(--primary-grey);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #3a88fd1a;
+  padding: 1rem;
+}

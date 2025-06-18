@@ -42,31 +42,33 @@ if ($module_id) {
     <h1 class="mb-4"><?php echo htmlspecialchars($course['title']); ?></h1>
     <?php if (!$module_id): ?>
       <h2 class="h4 mb-3">Wybierz moduł</h2>
-      <ol class="list-group list-group-numbered">
+      <div class="module-grid">
         <?php foreach ($modules as $m): ?>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span><?php echo htmlspecialchars($m['title']); ?></span>
-            <a href="learn.php?course_id=<?php echo $course_id; ?>&module_id=<?php echo $m['id']; ?>" class="btn btn-sm btn-primary">
-              Start
-            </a>
-          </li>
+          <div class="card module-card">
+            <div class="module-header">
+              <span class="module-title"><?php echo htmlspecialchars($m['title']); ?></span>
+              <a href="learn.php?course_id=<?php echo $course_id; ?>&module_id=<?php echo $m['id']; ?>" class="btn btn-sm btn-light">
+                <i class="bi bi-play-fill"></i> Start
+              </a>
+            </div>
+          </div>
         <?php endforeach; ?>
-      </ol>
+      </div>
     <?php else: ?>
       <p><a href="learn.php?course_id=<?php echo $course_id; ?>" class="btn btn-link">&laquo; Wszystkie moduły</a></p>
-      <h2 class="h5 mb-3">Lekcje</h2>
-      <?php if ($lessons): ?>
-        <ul class="list-group mb-4">
-          <?php foreach ($lessons as $l): ?>
-            <li class="list-group-item">
-              <b><?php echo htmlspecialchars($l['title']); ?></b><br>
-              <span class="badge bg-secondary">DE</span> <?php echo htmlspecialchars($l['german_text']); ?><br>
-              <span class="badge bg-info text-dark">Czyt.</span> <?php echo htmlspecialchars($l['phonetic_text']); ?><br>
-              <span class="badge bg-light text-dark">PL</span> <?php echo htmlspecialchars($l['polish_text']); ?>
-            </li>
-          <?php endforeach; ?>
-        </ul>
-      <?php else: ?>
+        <h2 class="h5 mb-3">Lekcje</h2>
+        <?php if ($lessons): ?>
+          <div class="lesson-grid mb-4">
+            <?php foreach ($lessons as $l): ?>
+              <div class="lesson-card">
+                <h5 class="mb-2"><?php echo htmlspecialchars($l['title']); ?></h5>
+                <p><span class="badge bg-secondary me-1">DE</span> <?php echo htmlspecialchars($l['german_text']); ?></p>
+                <p><span class="badge bg-info text-dark me-1">Czyt.</span> <?php echo htmlspecialchars($l['phonetic_text']); ?></p>
+                <p><span class="badge bg-light text-dark me-1">PL</span> <?php echo htmlspecialchars($l['polish_text']); ?></p>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        <?php else: ?>
         <div class="alert alert-warning">Brak lekcji w tym module.</div>
       <?php endif; ?>
     <?php endif; ?>

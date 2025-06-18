@@ -19,6 +19,11 @@ if (!$course) {
   $stmt2 = $pdo->prepare("SELECT title, german_text, phonetic_text, polish_text FROM lessons WHERE course_id = ? ORDER BY lesson_order ASC LIMIT 3");
   $stmt2->execute([$course_id]);
   $lessons = $stmt2->fetchAll();
+
+  // Pobierz moduły kursu
+  $stmtM = $pdo->prepare("SELECT id, title, module_order FROM modules WHERE course_id = ? ORDER BY module_order ASC");
+  $stmtM->execute([$course_id]);
+  $modules = $stmtM->fetchAll();
 }
 
 // Sprawdzenie czy użytkownik jest zalogowany
@@ -114,6 +119,25 @@ if ($is_logged) {
             <img src="assets/img/course_<?php echo $course['id']; ?>.jpg" class="img-fluid rounded shadow" alt="<?php echo htmlspecialchars($course['title']); ?>" onerror="this.src='assets/img/course_default.jpg'">
           </div>
         </div>
+        <?php if (!empty($modules)): ?>
+          <div class="bg-light rounded-4 shadow-sm p-4 mb-4">
+            <h2 class="h4 mb-3"><i class="bi bi-list-ul text-primary"></i> Moduły kursu:</h2>
+            <ol class="list-group list-group-numbered">
+              <?php foreach ($modules as $m): ?>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span><?php echo htmlspecialchars($m['title']); ?></span>
+                  <?php if ($has_course): ?>
+                    <a href="learn.php?course_id=<?php echo $course['id']; ?>&module_id=<?php echo $m['id']; ?>" class="btn btn-sm btn-outline-success">
+                      <i class="bi bi-play"></i> Start
+                    </a>
+                  <?php else: ?>
+                    <span class="badge bg-secondary">Zarejestruj się</span>
+                  <?php endif; ?>
+                </li>
+              <?php endforeach; ?>
+            </ol>
+          </div>
+        <?php endif; ?>
         <div class="bg-light rounded-4 shadow-sm p-4 mb-4">
           <h2 class="h4 mb-4"><i class="bi bi-journal-text text-primary"></i> Przykładowe lekcje z kursu:</h2>
           <?php if (!empty($lessons)): ?>

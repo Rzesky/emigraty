@@ -67,6 +67,31 @@ CREATE TABLE `courses` (
   `featured` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `modules`
+--
+
+CREATE TABLE `modules` (
+  `id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `module_order` int(11) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Daten für Tabelle `modules`
+--
+
+INSERT INTO `modules` (`id`, `course_id`, `title`, `module_order`) VALUES
+(1, 1, 'Wprowadzenie do CNC', 1),
+(2, 1, 'Programowanie maszyn', 2),
+(3, 3, 'Podstawy spawania', 1),
+(4, 3, 'Techniki spawania', 2),
+(5, 11, 'Bezpieczeństwo', 1),
+(6, 11, 'Instalacje w praktyce', 2);
+
 --
 -- Daten für Tabelle `courses`
 --
@@ -93,6 +118,7 @@ INSERT INTO `courses` (`id`, `title`, `description`, `category`, `price`, `durat
 CREATE TABLE `lessons` (
   `id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
+  `module_id` int(11) DEFAULT NULL,
   `title` varchar(100) NOT NULL,
   `german_text` varchar(255) NOT NULL,
   `phonetic_text` varchar(255) NOT NULL,
@@ -207,11 +233,19 @@ ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `modules`
+--
+ALTER TABLE `modules`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `course_id` (`course_id`);
+
+--
 -- Indizes für die Tabelle `lessons`
 --
 ALTER TABLE `lessons`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `course_id` (`course_id`);
+  ADD KEY `course_id` (`course_id`),
+  ADD KEY `module_id` (`module_id`);
 
 --
 -- Indizes für die Tabelle `referrals`
@@ -277,6 +311,12 @@ ALTER TABLE `courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT für Tabelle `modules`
+--
+ALTER TABLE `modules`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT für Tabelle `lessons`
 --
 ALTER TABLE `lessons`
@@ -324,10 +364,17 @@ ALTER TABLE `certificates`
   ADD CONSTRAINT `certificates_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE;
 
 --
+-- Constraints der Tabelle `modules`
+--
+ALTER TABLE `modules`
+  ADD CONSTRAINT `modules_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints der Tabelle `lessons`
 --
 ALTER TABLE `lessons`
-  ADD CONSTRAINT `lessons_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `lessons_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `lessons_ibfk_2` FOREIGN KEY (`module_id`) REFERENCES `modules` (`id`) ON DELETE SET NULL;
 
 --
 -- Constraints der Tabelle `referrals`

@@ -255,7 +255,11 @@ textarea:focus {
   transform: translateY(-2px) scale(1.025);
 }
 .module-accent {
-  background: linear-gradient(90deg, var(--primary-blue), var(--primary-violet));
+  background: linear-gradient(
+    90deg,
+    var(--primary-blue),
+    var(--primary-violet)
+  );
   height: 48px;
   width: 100%;
   display: flex;
@@ -334,7 +338,11 @@ textarea:focus {
   animation: fadein 1.2s cubic-bezier(0.52, 0.01, 0.32, 0.96);
 }
 .dashboard-hero {
-  background: linear-gradient(90deg, var(--primary-blue), var(--primary-violet));
+  background: linear-gradient(
+    90deg,
+    var(--primary-blue),
+    var(--primary-violet)
+  );
   color: #fff;
   border-radius: 14px;
   padding: 2.3rem 1.8rem;
@@ -353,7 +361,17 @@ textarea:focus {
   color: #e7eef9;
 }
 .gradient-title {
-  background: linear-gradient(90deg, var(--primary-blue), var(--primary-violet));
+  background: linear-gradient(
+    90deg,
+    var(--primary-blue),
+    var(--primary-violet)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+a.btn:focus,
+a.btn:active {
+  color: white !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
 }

@@ -64,26 +64,27 @@ if ($is_logged) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/dark.css">
 </head>
 
 <body>
-  <header class="hero">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container">
-        <a class="navbar-brand" href="index.php"><img src="assets/img/logo.png" alt="Emigraty" style="height:40px;"></a>
-        <div class="ms-auto">
-          <a href="login.php" class="btn btn-outline-light text-white me-2">Logowanie</a>
-          <a href="register.php" class="btn btn-primary text-white">Rejestracja</a>
-        </div>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 mb-0">
+    <div class="container">
+      <a class="navbar-brand" href="index.php">
+        <img src="assets/img/logo.png" alt="Emigraty" style="height:40px;">
+      </a>
+      <div class="ms-auto">
+        <a href="login.php" class="btn btn-outline-light text-white me-2">Logowanie</a>
+        <a href="register.php" class="btn btn-primary text-white">Rejestracja</a>
       </div>
-    </nav>
-    <div class="hero-content">
-      <h1><?php echo isset($not_found) ? 'Kurs nie znaleziony' : htmlspecialchars($course['title']); ?></h1>
-      <?php if (!isset($not_found)): ?>
-        <p><?php echo htmlspecialchars($course['description']); ?></p>
-      <?php endif; ?>
-    </div>
+  </nav>
+  <div class="hero-content">
+    <h1><?php echo isset($not_found) ? 'Kurs nie znaleziony' : htmlspecialchars($course['title']); ?></h1>
+    <?php if (!isset($not_found)): ?>
+      <p><?php echo htmlspecialchars($course['description']); ?></p>
+    <?php endif; ?>
+  </div>
   </header>
   <main class="py-5">
     <div class="container">
@@ -129,7 +130,7 @@ if ($is_logged) {
           </div>
         </div>
         <?php if (!empty($modules)): ?>
-          <div class="bg-light rounded-4 shadow-sm p-4 mb-4">
+          <div class="section-panel mb-4">
             <h2 class="h4 mb-3"><i class="bi bi-list-ul text-primary"></i> Moduły kursu:</h2>
             <ol class="list-group list-group-numbered">
               <?php foreach ($modules as $m): ?>
@@ -147,7 +148,7 @@ if ($is_logged) {
             </ol>
           </div>
         <?php endif; ?>
-        <div class="bg-light rounded-4 shadow-sm p-4 mb-4">
+        <div class="section-panel mb-4">
           <h2 class="h4 mb-4"><i class="bi bi-journal-text text-primary"></i> Przykładowe lekcje z kursu:</h2>
           <?php if (!empty($lessons)): ?>
             <div class="row">
@@ -158,7 +159,7 @@ if ($is_logged) {
                       <h5 class="card-title mb-2"><?php echo htmlspecialchars($lesson['title']); ?></h5>
                       <p><span class="badge bg-secondary">Niemiecki</span> <b><?php echo htmlspecialchars($lesson['german_text']); ?></b></p>
                       <p><span class="badge bg-info text-dark">Jak czytać</span> <i><?php echo htmlspecialchars($lesson['phonetic_text']); ?></i></p>
-                      <p><span class="badge bg-light text-dark">PL</span> <?php echo htmlspecialchars($lesson['polish_text']); ?></p>
+                      <p><span class="badge bg-secondary">PL</span> <?php echo htmlspecialchars($lesson['polish_text']); ?></p>
                     </div>
                   </div>
                 </div>

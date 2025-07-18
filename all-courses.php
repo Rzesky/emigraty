@@ -210,21 +210,27 @@ $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <div class="course-catalog-list">
       <?php foreach ($courses as $course): ?>
-        <div class="card course-card shadow-sm h-100">
-          <div class="course-card-bar d-flex align-items-center">
-            <span class="course-title-bar"><?php echo htmlspecialchars($course['title']); ?></span>
-            <i class="bi bi-mortarboard course-icon"></i>
+        <div class="card shadow-sm rounded border-0 bg-white h-100">
+          <div class="bg-primary text-white px-3 py-2 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0"><?php echo htmlspecialchars($course['title']); ?></h5>
+            <i class="bi bi-mortarboard fs-4"></i>
           </div>
-          <div class="card-body d-flex flex-column">
-            <div class="catalog-desc"><?php echo htmlspecialchars($course['description']); ?></div>
-            <span class="catalog-price">
-              <?php echo number_format($course['price'], 0, ',', ' '); ?> zł
-            </span>
-            <a href="course.php?id=<?php echo $course['id']; ?>" class="glass-btn btn w-100 mt-auto">
-              <i class="bi bi-search"></i> Szczegóły
-            </a>
+          <div class="p-3 d-flex flex-column h-100">
+            <span class="badge bg-success mb-2">Polecany</span>
+            <p class="text-dark flex-grow-1 mb-3">
+              <?php echo htmlspecialchars($course['description']); ?>
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-danger fw-bold">
+                <?php echo number_format($course['price'], 0, ',', ' '); ?> zł
+              </span>
+              <a href="course.php?id=<?php echo $course['id']; ?>" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-search"></i> Szczegóły
+              </a>
+            </div>
           </div>
         </div>
+
       <?php endforeach; ?>
       <?php if (empty($courses)): ?>
         <div>

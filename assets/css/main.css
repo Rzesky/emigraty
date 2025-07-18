@@ -369,9 +369,3 @@ textarea:focus {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-a.btn:focus,
-a.btn:active {
-  color: white !important;
-  box-shadow: none !important;
-  text-decoration: none !important;
-}

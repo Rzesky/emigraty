@@ -33,7 +33,7 @@ if (isset($_SESSION['user_id'], $_SESSION['session_token'])) {
         <a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="Emigraty" style="height:40px;"></a>
         <div class="ms-auto">
           <a href="login.php" class="btn btn-outline-light text-white me-2">Logowanie</a>
-          <a href="register.php" class="btn btn-primary">Rejestracja</a>
+          <a href="register.php" class="btn btn-primary text-white">Rejestracja</a>
         </div>
       </div>
     </nav>
@@ -41,8 +41,8 @@ if (isset($_SESSION['user_id'], $_SESSION['session_token'])) {
       <h1>Nowy start w Niemczech</h1>
       <p>Ucz się zawodowego niemieckiego i rozwijaj karierę.</p>
       <div>
-        <a href="#courses" class="btn btn-primary btn-lg me-3">Zobacz kursy</a>
-        <a href="register.php" class="btn btn-outline-light btn-lg">Dołącz teraz</a>
+        <a href="#courses" class="btn btn-primary btn-lg text-white me-3">Zobacz kursy</a>
+        <a href="register.php" class="btn btn-outline-light text-white btn-lg">Dołącz teraz</a>
       </div>
     </div>
   </header>

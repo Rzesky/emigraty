@@ -34,27 +34,36 @@ foreach ($active_courses as $course) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/home.css">
 
 </head>
 
 <body>
-  <!-- Topbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm mb-4" style="background:rgba(255,255,255,0.98)!important;">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="dashboard.php">
-        <img src="assets/img/logo.png" alt="Emigraty" style="height:36px;">
-      </a>
-      <div class="ms-auto d-flex align-items-center gap-3">
-        <span class="fw-semibold text-secondary" style="font-size:1.1rem">
-          <i class="bi bi-person-circle me-1"></i>
-          <?php echo htmlspecialchars($user['name'] ?: $user['email']); ?>
-        </span>
-        <a href="logout.php" class="glass-btn btn btn-sm px-3 py-2">
-          <i class="bi bi-box-arrow-right"></i> Wyloguj
-        </a>
+  <header class="hero">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="dashboard.php"><img src="assets/img/logo.png" alt="Emigraty" style="height:40px;"></a>
+        <div class="ms-auto d-flex align-items-center gap-3">
+          <span class="fw-semibold text-white" style="font-size:1.1rem">
+            <i class="bi bi-person-circle me-1"></i>
+            <?php echo htmlspecialchars($user['name'] ?: $user['email']); ?>
+          </span>
+          <a href="logout.php" class="btn btn-outline-light text-white btn-sm px-3 py-2">
+            <i class="bi bi-box-arrow-right"></i> Wyloguj
+          </a>
+        </div>
       </div>
+    </nav>
+    <div class="hero-content">
+      <h1>Panel kursanta</h1>
+      <p>Zarządzaj swoimi kursami i postępami.</p>
     </div>
-  </nav>
+  </header>
+
+  <div class="container">
 
   <div class="container">
     <!-- Powitanie i progres -->

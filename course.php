@@ -61,21 +61,30 @@ if ($is_logged) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <!-- Własny CSS -->
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/home.css">
 </head>
 
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 mb-0">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">
-        <img src="assets/img/logo.png" alt="Emigraty" style="height:40px;">
-      </a>
-      <div class="ms-auto">
-        <a href="login.php" class="btn btn-outline-primary me-2">Logowanie</a>
-        <a href="register.php" class="btn btn-primary">Rejestracja</a>
+  <header class="hero">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.php"><img src="assets/img/logo.png" alt="Emigraty" style="height:40px;"></a>
+        <div class="ms-auto">
+          <a href="login.php" class="btn btn-outline-light text-white me-2">Logowanie</a>
+          <a href="register.php" class="btn btn-primary text-white">Rejestracja</a>
+        </div>
       </div>
+    </nav>
+    <div class="hero-content">
+      <h1><?php echo isset($not_found) ? 'Kurs nie znaleziony' : htmlspecialchars($course['title']); ?></h1>
+      <?php if (!isset($not_found)): ?>
+        <p><?php echo htmlspecialchars($course['description']); ?></p>
+      <?php endif; ?>
     </div>
-  </nav>
+  </header>
   <main class="py-5">
     <div class="container">
       <?php if (isset($not_found)): ?>

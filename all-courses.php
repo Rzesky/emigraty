@@ -15,190 +15,34 @@ $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <!-- Bootstrap + Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <style>
-    :root {
-      --main-blue: rgb(58, 136, 253);
-      --main-blue-dark: rgb(18, 83, 180);
-      --main-grey: #f6f8fb;
-      --main-border: #dbe6f3;
-      --main-card: #fff;
-      --main-dark: #152140;
-      --main-success: #43e97b;
-      --main-warning: #ffd166;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family: "Segoe UI", "Roboto", Arial, sans-serif;
-      background: var(--main-grey);
-      color: var(--main-dark);
-    }
-
-    .courses-hero {
-      background: var(--main-blue);
-      border-radius: 14px;
-      padding: 2.2rem 2rem 2rem 2rem;
-      margin-bottom: 38px;
-      text-align: center;
-      box-shadow: 0 2px 24px #2566c51a;
-    }
-
-    .courses-hero h1 {
-      font-weight: 800;
-      font-size: 2.18rem;
-      color: #fff;
-      letter-spacing: -.5px;
-      margin-bottom: .45em;
-    }
-
-    .courses-hero p {
-      font-size: 1.12rem;
-      color: #e7eef9;
-      margin-bottom: 0;
-      font-weight: 400;
-    }
-
-    .course-catalog-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-
-    .card.course-card {
-      background: var(--main-card) !important;
-      border: 1.6px solid var(--main-border) !important;
-      border-radius: 14px !important;
-      box-shadow: 0 6px 24px 0 #2566c515;
-      overflow: hidden;
-      position: relative;
-      transition: box-shadow .19s, border-color .19s, transform .13s;
-      display: flex;
-      flex-direction: column;
-      min-height: 310px;
-    }
-
-    .card.course-card:hover {
-      box-shadow: 0 12px 34px #2566c532, 0 1.5px 7px #2566c513;
-      border-color: var(--main-blue-dark) !important;
-      transform: translateY(-2px) scale(1.025);
-    }
-
-    .course-card-bar {
-      background: var(--main-blue);
-      height: 46px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 0 1.3em 0 1.2em;
-      border-bottom: 1px solid var(--main-border);
-    }
-
-    .course-title-bar {
-      color: #fff;
-      font-size: 1.09em;
-      font-weight: 700;
-      letter-spacing: .01em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      flex: 1;
-      text-align: left;
-    }
-
-    .course-icon {
-      font-size: 1.65rem;
-      color: #fff;
-      opacity: .93;
-      margin-left: 0.7em;
-      margin-top: 2px;
-    }
-
-    .card-body {
-      padding: 1.5em 1.2em 1.1em 1.2em !important;
-      flex: 1 1 auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .catalog-desc {
-      color: #244070;
-      font-size: 1.03rem;
-      margin-bottom: 1.05em;
-      flex: 1 1 auto;
-    }
-
-    .catalog-price {
-      width: fit-content;
-      color: #fff;
-      background: var(--main-blue-dark);
-      display: inline-block;
-      border-radius: 8px;
-      font-size: 1.01rem;
-      font-weight: 600;
-      padding: 0.34em 1em;
-      margin-bottom: 1.1rem;
-    }
-
-    .glass-btn,
-    .catalog-btn {
-      background: var(--main-blue) !important;
-      color: #fff !important;
-      border-radius: 9px;
-      font-weight: 700;
-      font-size: 1.01em;
-      box-shadow: 0 2px 14px #2566c51c;
-      transition: background .14s, box-shadow .17s, color .13s;
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
-      border: none;
-    }
-
-    .glass-btn:hover,
-    .glass-btn:focus,
-    .catalog-btn:hover,
-    .catalog-btn:focus {
-      background: var(--main-blue-dark) !important;
-      color: #fff !important;
-      box-shadow: 0 2px 20px #2566c53a;
-      transform: scale(1.03);
-    }
-
-    @media (max-width: 700px) {
-      .courses-hero {
-        padding: 1.1rem 0.6rem 1.2rem 0.6rem;
-      }
-
-      .course-catalog-list {
-        grid-template-columns: 1fr;
-        gap: 1.1rem;
-      }
-
-      .card-body {
-        padding: 1.1em 1em 1em 1em !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/home.css">
 </head>
 
 <body>
-  <!-- Topbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm mb-4">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="dashboard.php">
-        <img src="assets/img/logo.png" alt="Emigraty" style="height:36px;">
-      </a>
-      <div class="ms-auto d-flex align-items-center gap-3">
-        <span class="fw-semibold text-secondary" style="font-size:1.1rem">
-          <i class="bi bi-person-circle me-1"></i>
-          <?php echo htmlspecialchars($user['name'] ?: $user['email']); ?>
-        </span>
-        <a href="logout.php" class="glass-btn btn btn-sm px-3 py-2">
-          <i class="bi bi-box-arrow-right"></i> Wyloguj
-        </a>
+  <header class="hero">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="dashboard.php"><img src="assets/img/logo.png" alt="Emigraty" style="height:40px;"></a>
+        <div class="ms-auto d-flex align-items-center gap-3">
+          <span class="fw-semibold text-white" style="font-size:1.1rem">
+            <i class="bi bi-person-circle me-1"></i>
+            <?php echo htmlspecialchars($user['name'] ?: $user['email']); ?>
+          </span>
+          <a href="logout.php" class="btn btn-outline-light text-white btn-sm px-3 py-2">
+            <i class="bi bi-box-arrow-right"></i> Wyloguj
+          </a>
+        </div>
       </div>
+    </nav>
+    <div class="hero-content">
+      <h1>Katalog kursów</h1>
+      <p>Wybierz kurs dopasowany do Twojej kariery.</p>
     </div>
-  </nav>
+  </header>
 
   <div class="container">
     <div class="courses-hero">
@@ -208,30 +52,30 @@ $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
         Wszystkie kursy są praktyczne, przystępne i skoncentrowane na niemieckim do pracy!
       </p>
     </div>
-    <div class="course-catalog-list">
-      <?php foreach ($courses as $course): ?>
-        <div class="card shadow-sm rounded border-0 bg-white h-100">
-          <div class="bg-primary text-white px-3 py-2 d-flex justify-content-between align-items-center">
-            <h5 class="mb-0"><?php echo htmlspecialchars($course['title']); ?></h5>
-            <i class="bi bi-mortarboard fs-4"></i>
-          </div>
-          <div class="p-3 d-flex flex-column h-100">
-            <span class="badge bg-success mb-2">Polecany</span>
-            <p class="text-dark flex-grow-1 mb-3">
-              <?php echo htmlspecialchars($course['description']); ?>
-            </p>
-            <div class="d-flex justify-content-between align-items-center">
-              <span class="text-danger fw-bold">
-                <?php echo number_format($course['price'], 0, ',', ' '); ?> zł
-              </span>
-              <a href="course.php?id=<?php echo $course['id']; ?>" class="btn btn-outline-primary btn-sm">
-                <i class="bi bi-search"></i> Szczegóły
-              </a>
+      <div class="course-catalog-list">
+        <?php foreach ($courses as $course): ?>
+          <div class="card course-card h-100">
+            <div class="course-card-accent d-flex justify-content-between align-items-center">
+              <span class="course-title-accent"><?php echo htmlspecialchars($course['title']); ?></span>
+              <i class="bi bi-mortarboard fs-4"></i>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-success mb-2">Polecany</span>
+              <p class="catalog-desc flex-grow-1 mb-3">
+                <?php echo htmlspecialchars($course['description']); ?>
+              </p>
+              <div class="d-flex justify-content-between align-items-center mt-auto">
+                <span class="catalog-price">
+                  <?php echo number_format($course['price'], 0, ',', ' '); ?> zł
+                </span>
+                <a href="course.php?id=<?php echo $course['id']; ?>" class="catalog-btn btn btn-sm">
+                  <i class="bi bi-search"></i> Szczegóły
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-
-      <?php endforeach; ?>
+        
+        <?php endforeach; ?>
       <?php if (empty($courses)): ?>
         <div>
           <div class="alert alert-warning text-center">Brak dostępnych kursów.</div>

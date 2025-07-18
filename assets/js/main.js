@@ -12,29 +12,33 @@ $(document).ready(function () {
 
     data.forEach(function (course) {
       $list.append(`
-            <div class="card course-card h-100">
-                <div class="course-card-accent d-flex align-items-center">
-                    <span class="course-title-accent">${course.title}</span>
-                    <i class="bi bi-mortarboard course-icon"></i>
-                </div>
-                <div class="card-body d-flex flex-column">
-                    ${
-                      course.featured == 1
-                        ? '<span class="badge bg-success mb-2">Polecany</span>'
-                        : ''
-                    }
-                    <div class="catalog-desc">${course.description}</div>
-                    <span class="catalog-price">${
-                      parseFloat(course.price) > 0
-                        ? course.price + ' zł'
-                        : 'Darmowy'
-                    }</span>
-                    <a href="course.php?id=${course.id}" class="glass-btn btn w-100 mt-auto">
-                        <i class="bi bi-search"></i> Szczegóły
-                    </a>
-                </div>
-            </div>
-        `);
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm rounded border-0 bg-white h-100">
+        <div class="bg-primary text-white px-3 py-2 d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">${course.title}</h5>
+          <i class="bi bi-mortarboard fs-4"></i>
+        </div>
+        <div class="p-3 d-flex flex-column h-100">
+          ${
+            course.featured == 1
+              ? '<span class="badge bg-success mb-2">Polecany</span>'
+              : ""
+          }
+          <p class="text-dark flex-grow-1 mb-3">${course.description}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="text-danger fw-bold">
+              ${parseFloat(course.price) > 0 ? course.price + " zł" : "Darmowy"}
+            </span>
+            <a href="course.php?id=${
+              course.id
+            }" class="btn btn-outline-primary btn-sm">
+              <i class="bi bi-search"></i> Szczegóły
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `);
     });
   });
 });

@@ -15,78 +15,64 @@ if (isset($_SESSION['user_id'], $_SESSION['session_token'])) {
   <title>Emigraty – Szybka nauka niemieckiego do pracy</title>
   <!-- Bootstrap 5 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Ikony Bootstrap (opcjonalnie) -->
+  <!-- Ikony Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <!-- Twój własny CSS -->
   <link rel="stylesheet" href="assets/css/main.css">
+  <!-- Nowy styl strony głównej -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/home.css">
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+  <header class="hero">
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="assets/img/logo.png" alt="Emigraty" style="height:40px;">
-        </a>
+        <a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="Emigraty" style="height:40px;"></a>
         <div class="ms-auto">
-          <a href="login.php" class="btn btn-outline-primary me-2">Logowanie</a>
+          <a href="login.php" class="btn btn-outline-light me-2">Logowanie</a>
           <a href="register.php" class="btn btn-primary">Rejestracja</a>
         </div>
       </div>
     </nav>
+    <div class="hero-content">
+      <h1>Nowy start w Niemczech</h1>
+      <p>Ucz się zawodowego niemieckiego i rozwijaj karierę.</p>
+      <div>
+        <a href="#courses" class="btn btn-primary btn-lg me-3">Zobacz kursy</a>
+        <a href="register.php" class="btn btn-outline-light btn-lg">Dołącz teraz</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <!-- HERO section -->
-    <section class="courses-hero mb-0">
+    <section id="courses" class="courses-section">
       <div class="container">
-        <h1 class="display-4 fw-bold">Niemiecki do pracy w Niemczech</h1>
-        <p class="lead mt-3">Tylko praktyczne zwroty. Tylko to, czego naprawdę potrzebujesz, by znaleźć i utrzymać pracę w Niemczech.</p>
-        <a href="#courses" class="btn btn-light btn-lg me-3">Zobacz kursy</a>
-        <a href="register.php" class="btn btn-outline-light btn-lg">Rozpocznij za darmo</a>
+        <h2 class="text-center">Dostępne kursy</h2>
+        <div class="course-catalog-list" id="courses-list"></div>
+        <div class="text-center mt-4">
+          <a href="register.php" class="btn btn-primary btn-lg">Rozpocznij naukę</a>
+        </div>
       </div>
     </section>
 
-    <!-- Kursy -->
-    <section id="courses" class="container py-5">
-      <h2 class="mb-4 text-center">Dostępne kursy</h2>
-      <div class="course-catalog-list" id="courses-list">
-      </div>
-      <div class="text-center mt-4">
-        <a href="register.php" class="btn btn-success btn-lg">Rozpocznij naukę za darmo</a>
-      </div>
-    </section>
-
-    <!-- Misja -->
-    <section class="bg-light py-5">
-      <div class="container text-center">
+    <section class="mission-section text-center py-5">
+      <div class="container">
         <h3 class="mb-3">Zwiększ swoje szanse na rynku pracy w Niemczech</h3>
-        <p class="lead">Nie musisz znać całej gramatyki – wystarczy praktyczny język, który naprawdę wykorzystasz. Każdy kurs to gotowe zwroty, wsparcie i realne możliwości!</p>
+        <p class="lead">Skupiamy się na praktycznych zwrotach, które wykorzystasz w pracy.</p>
       </div>
     </section>
   </main>
 
-  <footer class="bg-dark text-white text-center py-4 mt-5">
-    Emigraty &copy; 2025 – Nauka niemieckiego do pracy. Wszelkie prawa zastrzeżone.
+  <footer class="text-center py-4">
+    Emigraty &copy; 2025 – Nauka niemieckiego do pracy.
   </footer>
 
-  <!-- Bootstrap JS CDN + Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- jQuery CDN (jeśli chcesz AJAX w jQuery) -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Twój JS -->
   <script src="assets/js/main.js"></script>
-  <!-- Przykładowy AJAX do pobierania kursów (do rozbudowy w main.js) -->
-  <script>
-    // Przykład AJAX (do późniejszego rozbudowania)
-    /*
-    $(document).ready(function() {
-        $.getJSON('api/courses.php', function(data) {
-            // Wstawianie kafelków kursów na żywo
-        });
-    });
-    */
-  </script>
 </body>
 
 </html>

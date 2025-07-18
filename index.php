@@ -32,7 +32,7 @@ if (isset($_SESSION['user_id'], $_SESSION['session_token'])) {
       <div class="container">
         <a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="Emigraty" style="height:40px;"></a>
         <div class="ms-auto">
-          <a href="login.php" class="btn btn-outline-light me-2">Logowanie</a>
+          <a href="login.php" class="btn btn-outline-light text-white me-2">Logowanie</a>
           <a href="register.php" class="btn btn-primary">Rejestracja</a>
         </div>
       </div>

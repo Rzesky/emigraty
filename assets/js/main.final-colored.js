@@ -15,28 +15,18 @@ $(document).ready(function () {
       html += `
         <div class="col-sm-6 col-md-4 col-lg-3 mb-4 d-flex">
           <div class="card flex-fill shadow-sm rounded-3 border-0 bg-white h-100">
-            <div class="px-3 py-2 text-white d-flex justify-content-between align-items-center" style="background-color: #305779;">
+            <div class="px-3 py-2 text-white d-flex justify-content-between align-items-center" style="background-color: #305779; border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem;">
               <h5 class="mb-0">${course.title}</h5>
               <i class="bi bi-mortarboard fs-4"></i>
             </div>
             <div class="p-3 d-flex flex-column h-100">
-              ${
-                course.featured == 1
-                  ? '<span class="badge bg-success text-white rounded-pill px-3 py-1 small align-self-start mt-2 mb-2">Polecany</span>'
-                  : ""
-              }
+              ${course.featured == 1 ? '<span class="badge bg-success text-white rounded-pill px-3 py-1 small align-self-start mt-2 mb-2">Polecany</span>' : ''}
               <p class="text-dark flex-grow-1 mb-3">${course.description}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <span class="text-danger fw-bold">
-                  ${
-                    parseFloat(course.price) > 0
-                      ? course.price + " zł"
-                      : "Darmowy"
-                  }
+                  ${parseFloat(course.price) > 0 ? course.price + ' zł' : 'Darmowy'}
                 </span>
-                <a href="course.php?id=${
-                  course.id
-                }" class="btn btn-outline-primary btn-sm rounded-pill">
+                <a href="course.php?id=${course.id}" class="btn btn-outline-primary btn-sm rounded-pill">
                   <i class="bi bi-search"></i> Szczegóły
                 </a>
               </div>
@@ -45,7 +35,7 @@ $(document).ready(function () {
         </div>
       `;
     });
-    html += "</div>";
+    html += '</div>';
     $list.html(html);
   });
 });

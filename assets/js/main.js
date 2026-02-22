@@ -1,14 +1,12 @@
 (() => {
-  const root = document.documentElement;
-  const saved = localStorage.getItem('emigraty-theme');
-  if (saved) root.setAttribute('data-theme', saved);
+  const menuButton = document.querySelector('[data-menu-toggle]');
+  const menu = document.querySelector('#site-menu');
 
-  const btn = document.querySelector('[data-theme-toggle]');
-  if (btn) {
-    btn.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('emigraty-theme', next);
+  if (menuButton && menu) {
+    menuButton.addEventListener('click', () => {
+      const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('is-open');
     });
   }
 

@@ -16,17 +16,26 @@ $articles = articlesByCategory($categorySlug);
 <head><?php require __DIR__ . '/head.php'; ?></head>
 <body>
 <?php require __DIR__ . '/header.php'; ?>
-<main class="wrap">
+<main class="wrap section-space">
   <?= breadcrumbs([
     ['label' => 'Start', 'url' => url('/')],
     ['label' => $category['name']]
   ]) ?>
-  <section class="card"><h1><?= htmlspecialchars($category['name']) ?></h1><p><?= htmlspecialchars($category['description']) ?></p></section>
-  <section class="grid grid-2" style="margin-top:1rem">
+
+  <section class="page-intro">
+    <span class="tag"><?= htmlspecialchars($category['name']) ?></span>
+    <h1><?= htmlspecialchars($category['name']) ?></h1>
+    <p><?= htmlspecialchars($category['description']) ?></p>
+  </section>
+
+  <section class="article-grid">
     <?php foreach ($articles as $article): ?>
-      <a class="card article-card" href="<?= articleUrl($article) ?>">
+      <a class="article-card" href="<?= articleUrl($article) ?>">
+        <div class="article-thumb" aria-hidden="true"></div>
+        <span class="tag"><?= htmlspecialchars(CATEGORIES[$article['category']]['name']) ?></span>
         <strong><?= htmlspecialchars($article['title']) ?></strong>
         <p><?= htmlspecialchars($article['description']) ?></p>
+        <small><?= htmlspecialchars($article['updated_at']) ?></small>
       </a>
     <?php endforeach; ?>
   </section>

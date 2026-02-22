@@ -10,21 +10,24 @@ $articles = array_values(getArticles());
 <head><?php require __DIR__ . '/../inc/head.php'; ?></head>
 <body>
 <?php require __DIR__ . '/../inc/header.php'; ?>
-<main class="wrap">
+<main class="wrap section-space">
   <?= breadcrumbs([
     ['label' => 'Start', 'url' => url('/')],
     ['label' => 'Poradniki']
   ]) ?>
-  <section class="card">
+  <section class="page-intro">
     <h1>Wszystkie poradniki Emigraty</h1>
+    <p>Znajdź właściwy artykuł po kategorii, temacie i słowach kluczowych.</p>
     <input class="search-input" type="search" placeholder="Szukaj po tytule, kategorii lub słowach kluczowych" data-search-input>
   </section>
-  <section class="grid grid-2" style="margin-top:1rem">
+  <section class="article-grid">
     <?php foreach ($articles as $article): ?>
-      <a class="card article-card" data-article-card data-search="<?= htmlspecialchars($article['title'] . ' ' . $article['description'] . ' ' . $article['category']) ?>" href="<?= articleUrl($article) ?>">
-        <small><?= htmlspecialchars(CATEGORIES[$article['category']]['name']) ?></small>
+      <a class="article-card" data-article-card data-search="<?= htmlspecialchars($article['title'] . ' ' . $article['description'] . ' ' . $article['category']) ?>" href="<?= articleUrl($article) ?>">
+        <div class="article-thumb" aria-hidden="true"></div>
+        <span class="tag"><?= htmlspecialchars(CATEGORIES[$article['category']]['name']) ?></span>
         <strong><?= htmlspecialchars($article['title']) ?></strong>
         <p><?= htmlspecialchars($article['description']) ?></p>
+        <small><?= htmlspecialchars($article['updated_at']) ?></small>
       </a>
     <?php endforeach; ?>
   </section>

@@ -38,51 +38,66 @@ $related = relatedArticles($article['slug']);
 <head><?php require __DIR__ . '/head.php'; ?></head>
 <body>
 <?php require __DIR__ . '/header.php'; ?>
-<main class="wrap article">
+<main class="wrap section-space">
   <?= breadcrumbs([
     ['label' => 'Start', 'url' => url('/')],
     ['label' => $category['name'], 'url' => categoryUrl($article['category'])],
     ['label' => $article['title']]
   ]) ?>
 
-  <article class="card">
-    <h1><?= htmlspecialchars($article['title']) ?></h1>
-    <p><?= htmlspecialchars($article['description']) ?></p>
+  <div class="article-layout">
+    <article class="article-main">
+      <span class="tag"><?= htmlspecialchars($category['name']) ?></span>
+      <h1><?= htmlspecialchars($article['title']) ?></h1>
+      <p class="lead"><?= htmlspecialchars($article['description']) ?></p>
 
-    <section class="toc card">
-      <strong>Spis treści</strong>
       <?php foreach ($article['sections'] as $idx => $section): ?>
-        <a href="#sekcja-<?= $idx + 1 ?>"><?= $idx + 1 ?>. <?= htmlspecialchars($section['title']) ?></a>
+        <section class="article-section" id="sekcja-<?= $idx + 1 ?>">
+          <h2><?= htmlspecialchars($section['title']) ?></h2>
+          <?php foreach ($section['content'] as $paragraph): ?>
+            <p><?= htmlspecialchars($paragraph) ?></p>
+          <?php endforeach; ?>
+        </section>
       <?php endforeach; ?>
-      <a href="#faq">FAQ</a>
-    </section>
 
-    <?php foreach ($article['sections'] as $idx => $section): ?>
-      <h2 id="sekcja-<?= $idx + 1 ?>"><?= htmlspecialchars($section['title']) ?></h2>
-      <?php foreach ($section['content'] as $paragraph): ?>
-        <p><?= htmlspecialchars($paragraph) ?></p>
+      <section class="article-section" id="faq">
+        <h2>FAQ</h2>
+        <?php foreach ($article['faq'] as $faq): ?>
+          <h3><?= htmlspecialchars($faq['q']) ?></h3>
+          <p><?= htmlspecialchars($faq['a']) ?></p>
+        <?php endforeach; ?>
+      </section>
+
+      <div class="cta">
+        <strong>Potrzebujesz kolejnego kroku?</strong>
+        <p>Przejdź do powiązanych poradników i zbuduj własny plan działania na najbliższe 30 dni.</p>
+      </div>
+    </article>
+
+    <aside class="toc-sidebar">
+      <section class="toc">
+        <strong>Spis treści</strong>
+        <?php foreach ($article['sections'] as $idx => $section): ?>
+          <a href="#sekcja-<?= $idx + 1 ?>"><?= $idx + 1 ?>. <?= htmlspecialchars($section['title']) ?></a>
+        <?php endforeach; ?>
+        <a href="#faq">FAQ</a>
+      </section>
+    </aside>
+  </div>
+
+  <section class="section-space">
+    <div class="section-head"><h2>Powiązane artykuły</h2></div>
+    <div class="article-grid">
+      <?php foreach ($related as $item): ?>
+        <a class="article-card" href="<?= articleUrl($item) ?>">
+          <div class="article-thumb" aria-hidden="true"></div>
+          <span class="tag"><?= htmlspecialchars(CATEGORIES[$item['category']]['name']) ?></span>
+          <strong><?= htmlspecialchars($item['title']) ?></strong>
+          <p><?= htmlspecialchars($item['description']) ?></p>
+          <small><?= htmlspecialchars($item['updated_at']) ?></small>
+        </a>
       <?php endforeach; ?>
-    <?php endforeach; ?>
-
-    <h2 id="faq">FAQ</h2>
-    <?php foreach ($article['faq'] as $faq): ?>
-      <h3><?= htmlspecialchars($faq['q']) ?></h3>
-      <p><?= htmlspecialchars($faq['a']) ?></p>
-    <?php endforeach; ?>
-
-    <div class="cta">
-      <strong>Potrzebujesz kolejnego kroku?</strong>
-      <p>Przejdź do powiązanych poradników i zbuduj własny plan działania na najbliższe 30 dni.</p>
     </div>
-  </article>
-
-  <section class="grid grid-3" style="margin-top:1rem">
-    <?php foreach ($related as $item): ?>
-      <a class="card article-card" href="<?= articleUrl($item) ?>">
-        <strong><?= htmlspecialchars($item['title']) ?></strong>
-        <p><?= htmlspecialchars($item['description']) ?></p>
-      </a>
-    <?php endforeach; ?>
   </section>
 </main>
 <?php require __DIR__ . '/footer.php'; ?>

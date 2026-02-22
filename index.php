@@ -1,78 +1,53 @@
 <?php
-session_start();
-if (isset($_SESSION['user_id'], $_SESSION['session_token'])) {
-  header("Location: dashboard.php");
-  exit;
-}
+
+$title = "Emigraty – życie i praca w Niemczech (poradniki)";
+$description = "Urzędy, praca, finanse i życie w Niemczech. Poradniki krok po kroku, bez lania wody.";
+require_once __DIR__ . '/inc/functions.php';
+require_once __DIR__ . '/inc/config.php';
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Emigraty – Szybka nauka praktycznego niemieckiego do pracy w Niemczech. Tylko potrzebne zwroty i proste kursy.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emigraty – Szybka nauka niemieckiego do pracy</title>
-  <!-- Bootstrap 5 CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Ikony Bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <!-- Twój własny CSS -->
-  <link rel="stylesheet" href="assets/css/main.css">
-  <!-- Nowy styl strony głównej -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/home.css">
+  <?php require __DIR__ . '/inc/head.php'; ?>
 </head>
 
 <body>
-  <header class="hero">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container">
-        <a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="Emigraty" style="height:40px;"></a>
-        <div class="ms-auto">
-          <a href="login.php" class="btn btn-outline-light text-white me-2">Logowanie</a>
-          <a href="register.php" class="btn btn-primary text-white">Rejestracja</a>
-        </div>
-      </div>
-    </nav>
-    <div class="hero-content">
-      <h1>Nowy start w Niemczech</h1>
-      <p>Ucz się zawodowego niemieckiego i rozwijaj karierę.</p>
-      <div>
-        <a href="#courses" class="btn btn-primary btn-lg text-white me-3">Zobacz kursy</a>
-        <a href="register.php" class="btn btn-outline-light text-white btn-lg">Dołącz teraz</a>
-      </div>
-    </div>
-  </header>
+  <?php require __DIR__ . '/inc/header.php'; ?>
 
-  <main>
-    <section id="courses" class="courses-section">
-      <div class="container">
-        <h2 class="text-center">Dostępne kursy</h2>
-        <div class="course-catalog-list" id="courses-list"></div>
-        <div class="text-center mt-4">
-          <a href="register.php" class="btn btn-primary btn-lg">Rozpocznij naukę</a>
-        </div>
-      </div>
+  <main class="wrap">
+    <section class="card">
+      <div class="pill">🇩🇪 Poradnikowo • konkretnie • evergreen</div>
+      <h1 class="h1">Życie i praca w Niemczech — krok po kroku</h1>
+      <p class="lead">Urzędy, finanse, praca, mieszkanie. Strona pisana pod praktykę emigranta i SEO.</p>
+      <a class="btn" href="<?= url('/poradniki/') ?>">Zobacz poradniki</a>
     </section>
 
-    <section class="mission-section text-center py-5">
-      <div class="container">
-        <h3 class="mb-3">Zwiększ swoje szanse na rynku pracy w Niemczech</h3>
-        <p class="lead">Skupiamy się na praktycznych zwrotach, które wykorzystasz w pracy.</p>
-      </div>
+    <section style="margin-top:18px" class="grid cols-3">
+      <a class="card" href="<?= url('/urzedy/') ?>">
+        <strong>Urzędy</strong>
+        <div class="lead" style="margin:6px 0 0">
+          Anmeldung, Steuer-ID, Krankenkasse…
+        </div>
+      </a>
+
+      <a class="card" href="<?= url('/praca/') ?>">
+        <strong>Praca</strong>
+        <div class="lead" style="margin:6px 0 0">
+          CV/Bewerbung, umowy, zmiana pracy…
+        </div>
+      </a>
+
+      <a class="card" href="<?= url('/finanse/') ?>">
+        <strong>Finanse</strong>
+        <div class="lead" style="margin:6px 0 0">
+          Steuerklasse, Kindergeld, budżet…
+        </div>
+      </a>
     </section>
   </main>
 
-  <footer class="text-center py-4">
-    Emigraty &copy; 2025 – Nauka niemieckiego do pracy.
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  <?php require __DIR__ . '/inc/footer.php'; ?>
 </body>
 
 </html>

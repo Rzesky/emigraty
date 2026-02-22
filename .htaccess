@@ -1,9 +1,6 @@
 RewriteEngine On
 
-# usuwanie .php z URL
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^\.]+)$ $1.php [L]
-
-# wymuszanie https (opcjonalnie na produkcji)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

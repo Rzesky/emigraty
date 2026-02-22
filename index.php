@@ -1,53 +1,40 @@
 <?php
-
-$title = "Emigraty – życie i praca w Niemczech (poradniki)";
-$description = "Urzędy, praca, finanse i życie w Niemczech. Poradniki krok po kroku, bez lania wody.";
 require_once __DIR__ . '/inc/functions.php';
-require_once __DIR__ . '/inc/config.php';
+$title = 'Emigraty – portal poradnikowy o emigracji do Niemiec';
+$description = 'Eksperckie poradniki o urzędach, pracy, finansach, mieszkaniu i życiu w Niemczech.';
+$canonical = fullUrl('/');
+$all = getArticles();
 ?>
 <!doctype html>
 <html lang="pl">
-
-<head>
-  <?php require __DIR__ . '/inc/head.php'; ?>
-</head>
-
+<head><?php require __DIR__ . '/inc/head.php'; ?></head>
 <body>
-  <?php require __DIR__ . '/inc/header.php'; ?>
+<?php require __DIR__ . '/inc/header.php'; ?>
+<main class="wrap">
+  <section class="card hero">
+    <h1>Emigraty: portal poradnikowy o emigracji do Niemiec</h1>
+    <p>Praktyczne, aktualizowane poradniki stworzone dla osób, które chcą przejść przez formalności i codzienne decyzje bez kosztownych błędów.</p>
+  </section>
 
-  <main class="wrap">
-    <section class="card">
-      <div class="pill">🇩🇪 Poradnikowo • konkretnie • evergreen</div>
-      <h1 class="h1">Życie i praca w Niemczech — krok po kroku</h1>
-      <p class="lead">Urzędy, finanse, praca, mieszkanie. Strona pisana pod praktykę emigranta i SEO.</p>
-      <a class="btn" href="<?= url('/poradniki/') ?>">Zobacz poradniki</a>
-    </section>
-
-    <section style="margin-top:18px" class="grid cols-3">
-      <a class="card" href="<?= url('/urzedy/') ?>">
-        <strong>Urzędy</strong>
-        <div class="lead" style="margin:6px 0 0">
-          Anmeldung, Steuer-ID, Krankenkasse…
-        </div>
+  <section class="grid grid-3" style="margin-top:1rem">
+    <?php foreach (CATEGORIES as $slug => $cat): ?>
+      <a class="card article-card" href="<?= categoryUrl($slug) ?>">
+        <strong><?= htmlspecialchars($cat['name']) ?></strong>
+        <p><?= htmlspecialchars($cat['description']) ?></p>
+        <small><?= count(articlesByCategory($slug)) ?> artykułów</small>
       </a>
+    <?php endforeach; ?>
+  </section>
 
-      <a class="card" href="<?= url('/praca/') ?>">
-        <strong>Praca</strong>
-        <div class="lead" style="margin:6px 0 0">
-          CV/Bewerbung, umowy, zmiana pracy…
-        </div>
-      </a>
-
-      <a class="card" href="<?= url('/finanse/') ?>">
-        <strong>Finanse</strong>
-        <div class="lead" style="margin:6px 0 0">
-          Steuerklasse, Kindergeld, budżet…
-        </div>
-      </a>
-    </section>
-  </main>
-
-  <?php require __DIR__ . '/inc/footer.php'; ?>
+  <section class="card" style="margin-top:1rem">
+    <h2>Najnowsze poradniki</h2>
+    <div class="grid grid-2">
+      <?php foreach (array_slice(array_values($all), 0, 6) as $article): ?>
+        <a class="article-card" href="<?= articleUrl($article) ?>"><strong><?= htmlspecialchars($article['title']) ?></strong></a>
+      <?php endforeach; ?>
+    </div>
+  </section>
+</main>
+<?php require __DIR__ . '/inc/footer.php'; ?>
 </body>
-
 </html>

@@ -6,300 +6,210 @@
       "name": "Operator CNC",
       "country": "DE",
       "median_monthly_net": 2200,
-      "range": [
-        1870,
-        2640
-      ],
+      "range": [1870, 2640],
       "description": "Operator CNC - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Operator CNC",
       "country": "PL",
       "median_monthly_net": 5200,
-      "range": [
-        4264,
-        6136
-      ],
+      "range": [4264, 6136],
       "description": "Operator CNC - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Spawacz MAG",
       "country": "DE",
       "median_monthly_net": 2330,
-      "range": [
-        1980,
-        2796
-      ],
+      "range": [1980, 2796],
       "description": "Spawacz MAG - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Spawacz MAG",
       "country": "PL",
       "median_monthly_net": 5580,
-      "range": [
-        4575,
-        6584
-      ],
+      "range": [4575, 6584],
       "description": "Spawacz MAG - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Magazynier",
       "country": "DE",
       "median_monthly_net": 2460,
-      "range": [
-        2091,
-        2952
-      ],
+      "range": [2091, 2952],
       "description": "Magazynier - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Magazynier",
       "country": "PL",
       "median_monthly_net": 5960,
-      "range": [
-        4887,
-        7032
-      ],
+      "range": [4887, 7032],
       "description": "Magazynier - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Opiekun seniora",
       "country": "DE",
       "median_monthly_net": 2590,
-      "range": [
-        2201,
-        3108
-      ],
+      "range": [2201, 3108],
       "description": "Opiekun seniora - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Opiekun seniora",
       "country": "PL",
       "median_monthly_net": 6340,
-      "range": [
-        5198,
-        7481
-      ],
+      "range": [5198, 7481],
       "description": "Opiekun seniora - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Kierowca C+E",
       "country": "DE",
       "median_monthly_net": 2720,
-      "range": [
-        2312,
-        3264
-      ],
+      "range": [2312, 3264],
       "description": "Kierowca C+E - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Kierowca C+E",
       "country": "PL",
       "median_monthly_net": 6720,
-      "range": [
-        5510,
-        7929
-      ],
+      "range": [5510, 7929],
       "description": "Kierowca C+E - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Programista PHP",
       "country": "DE",
       "median_monthly_net": 2850,
-      "range": [
-        2422,
-        3420
-      ],
+      "range": [2422, 3420],
       "description": "Programista PHP - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Programista PHP",
       "country": "PL",
       "median_monthly_net": 7100,
-      "range": [
-        5822,
-        8378
-      ],
+      "range": [5822, 8378],
       "description": "Programista PHP - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Frontend Developer",
       "country": "DE",
       "median_monthly_net": 2980,
-      "range": [
-        2533,
-        3576
-      ],
+      "range": [2533, 3576],
       "description": "Frontend Developer - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Frontend Developer",
       "country": "PL",
       "median_monthly_net": 7480,
-      "range": [
-        6133,
-        8826
-      ],
+      "range": [6133, 8826],
       "description": "Frontend Developer - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Elektryk",
       "country": "DE",
       "median_monthly_net": 3110,
-      "range": [
-        2643,
-        3732
-      ],
+      "range": [2643, 3732],
       "description": "Elektryk - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Elektryk",
       "country": "PL",
       "median_monthly_net": 7860,
-      "range": [
-        6445,
-        9274
-      ],
+      "range": [6445, 9274],
       "description": "Elektryk - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Hydraulik",
       "country": "DE",
       "median_monthly_net": 3240,
-      "range": [
-        2754,
-        3888
-      ],
+      "range": [2754, 3888],
       "description": "Hydraulik - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Hydraulik",
       "country": "PL",
       "median_monthly_net": 8240,
-      "range": [
-        6756,
-        9723
-      ],
+      "range": [6756, 9723],
       "description": "Hydraulik - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Mechanik samochodowy",
       "country": "DE",
       "median_monthly_net": 3370,
-      "range": [
-        2864,
-        4044
-      ],
+      "range": [2864, 4044],
       "description": "Mechanik samochodowy - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Mechanik samochodowy",
       "country": "PL",
       "median_monthly_net": 8620,
-      "range": [
-        7068,
-        10171
-      ],
+      "range": [7068, 10171],
       "description": "Mechanik samochodowy - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Pielęgniarka",
       "country": "DE",
       "median_monthly_net": 3500,
-      "range": [
-        2975,
-        4200
-      ],
+      "range": [2975, 4200],
       "description": "Pielęgniarka - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Pielęgniarka",
       "country": "PL",
       "median_monthly_net": 9000,
-      "range": [
-        7380,
-        10620
-      ],
+      "range": [7380, 10620],
       "description": "Pielęgniarka - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Kucharz",
       "country": "DE",
       "median_monthly_net": 3630,
-      "range": [
-        3085,
-        4356
-      ],
+      "range": [3085, 4356],
       "description": "Kucharz - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Kucharz",
       "country": "PL",
       "median_monthly_net": 9380,
-      "range": [
-        7691,
-        11068
-      ],
+      "range": [7691, 11068],
       "description": "Kucharz - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Kelner",
       "country": "DE",
       "median_monthly_net": 3760,
-      "range": [
-        3196,
-        4512
-      ],
+      "range": [3196, 4512],
       "description": "Kelner - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Kelner",
       "country": "PL",
       "median_monthly_net": 9760,
-      "range": [
-        8003,
-        11516
-      ],
+      "range": [8003, 11516],
       "description": "Kelner - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Specjalista HR",
       "country": "DE",
       "median_monthly_net": 3890,
-      "range": [
-        3306,
-        4668
-      ],
+      "range": [3306, 4668],
       "description": "Specjalista HR - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Specjalista HR",
       "country": "PL",
       "median_monthly_net": 10140,
-      "range": [
-        8314,
-        11965
-      ],
+      "range": [8314, 11965],
       "description": "Specjalista HR - mediana miesięczna netto dla Polski (szacunek)."
     },
     {
       "name": "Analityk danych",
       "country": "DE",
       "median_monthly_net": 4020,
-      "range": [
-        3417,
-        4824
-      ],
+      "range": [3417, 4824],
       "description": "Analityk danych - mediana miesięczna netto dla Niemiec (szacunek)."
     },
     {
       "name": "Analityk danych",
       "country": "PL",
       "median_monthly_net": 10520,
-      "range": [
-        8626,
-        12413
-      ],
+      "range": [8626, 12413],
       "description": "Analityk danych - mediana miesięczna netto dla Polski (szacunek)."
     }
   ]

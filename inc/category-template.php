@@ -31,7 +31,7 @@ $articles = articlesByCategory($categorySlug);
   <section class="article-grid">
     <?php foreach ($articles as $article): ?>
       <a class="article-card" href="<?= articleUrl($article) ?>">
-        <div class="article-thumb" aria-hidden="true"></div>
+        <?= renderArticleThumb($article) ?>
         <span class="tag"><?= htmlspecialchars(CATEGORIES[$article['category']]['name']) ?></span>
         <strong><?= htmlspecialchars($article['title']) ?></strong>
         <p><?= htmlspecialchars($article['description']) ?></p>

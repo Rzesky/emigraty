@@ -29,7 +29,7 @@ $latest = array_slice($all, 1, 6);
     </div>
     <?php if ($featured): ?>
       <a class="featured-tile" href="<?= articleUrl($featured) ?>">
-        <div class="article-thumb" aria-hidden="true"></div>
+        <?= renderArticleThumb($featured) ?>
         <div class="featured-content">
           <span class="tag"><?= htmlspecialchars(CATEGORIES[$featured['category']]['name']) ?></span>
           <h3><?= htmlspecialchars($featured['title']) ?></h3>
@@ -47,7 +47,7 @@ $latest = array_slice($all, 1, 6);
     <div class="article-grid">
       <?php foreach ($latest as $article): ?>
         <a class="article-card" href="<?= articleUrl($article) ?>">
-          <div class="article-thumb" aria-hidden="true"></div>
+          <?= renderArticleThumb($article) ?>
           <span class="tag"><?= htmlspecialchars(CATEGORIES[$article['category']]['name']) ?></span>
           <strong><?= htmlspecialchars($article['title']) ?></strong>
           <p><?= htmlspecialchars($article['description']) ?></p>

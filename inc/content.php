@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/article-metadata.php';
+
 const CATEGORIES = [
   'urzedy' => ['name' => 'Urzędy', 'description' => 'Formalności urzędowe, meldunek, podatki i ubezpieczenia.'],
   'praca' => ['name' => 'Praca', 'description' => 'Zatrudnienie, umowy, rekrutacja i rozwój zawodowy.'],
@@ -12,53 +14,7 @@ const CATEGORIES = [
 
 function articleBlueprints(): array
 {
-  return [
-    ['slug' => 'anmeldung-krok-po-kroku', 'category' => 'urzedy', 'title' => 'Anmeldung w Niemczech krok po kroku: jak zameldować się bez błędów', 'description' => 'Praktyczny przewodnik po meldunku w Niemczech: dokumenty, terminy, opłaty i najczęstsze błędy nowych emigrantów.'],
-    ['slug' => 'steuer-id-jak-zdobyc', 'category' => 'urzedy', 'title' => 'Steuer-ID: jak zdobyć i do czego jest potrzebny numer podatkowy', 'description' => 'Wyjaśniamy jak działa Steuer-ID, gdzie go znaleźć i kiedy urząd skarbowy wysyła numer podatkowy.'],
-    ['slug' => 'elster-rozliczenie-podatku', 'category' => 'urzedy', 'title' => 'ELSTER dla początkujących: rozliczenie podatku krok po kroku', 'description' => 'Jak założyć konto ELSTER, wysłać deklarację i odzyskać nadpłatę podatku w Niemczech.'],
-    ['slug' => 'kindergeld-wniosek', 'category' => 'urzedy', 'title' => 'Kindergeld 2026: jak wypełnić wniosek i nie stracić świadczenia', 'description' => 'Checklista dokumentów i procedura składania wniosku o Kindergeld dla rodzin mieszkających w Niemczech.'],
-    ['slug' => 'karta-pobytu-dla-rodziny-ue', 'category' => 'urzedy', 'title' => 'Karta pobytu dla rodziny obywatela UE: procedura i terminy', 'description' => 'Jak przygotować legalizację pobytu dla członków rodziny w Niemczech i uniknąć opóźnień.'],
-    ['slug' => 'ubezpieczenie-zdrowotne-wybor', 'category' => 'urzedy', 'title' => 'Ubezpieczenie zdrowotne w Niemczech: publiczne czy prywatne?', 'description' => 'Porównanie GKV i PKV, koszty, składki oraz praktyczne wskazówki dla nowych emigrantów.'],
-
-    ['slug' => 'cv-po-niemiecku-profesjonalnie', 'category' => 'praca', 'title' => 'CV po niemiecku: wzór i zasady, które naprawdę działają', 'description' => 'Jak napisać Lebenslauf pod niemiecki rynek pracy i zwiększyć liczbę zaproszeń na rozmowę.'],
-    ['slug' => 'list-motywacyjny-bewerbung', 'category' => 'praca', 'title' => 'Bewerbung w praktyce: list motywacyjny i komplet dokumentów', 'description' => 'Sprawdzone standardy aplikacji o pracę w Niemczech: Anschreiben, Zeugnisse i portfolio.'],
-    ['slug' => 'rozmowa-kwalifikacyjna-niemcy', 'category' => 'praca', 'title' => 'Rozmowa kwalifikacyjna w Niemczech: pytania i dobre odpowiedzi', 'description' => 'Jak przygotować się do rozmowy o pracę po niemiecku i pewnie negocjować warunki.'],
-    ['slug' => 'umowa-o-prace-niemcy', 'category' => 'praca', 'title' => 'Umowa o pracę w Niemczech: co sprawdzić przed podpisaniem', 'description' => 'Kluczowe zapisy umowy, okres próbny, wypowiedzenie i ochrona pracownika.'],
-    ['slug' => 'zmiana-pracy-bez-ryzyka', 'category' => 'praca', 'title' => 'Zmiana pracy w Niemczech bez ryzyka finansowego i prawnego', 'description' => 'Plan przejścia do nowego pracodawcy z zachowaniem ciągłości dochodów i ubezpieczenia.'],
-    ['slug' => 'samozatrudnienie-gewerbe', 'category' => 'praca', 'title' => 'Gewerbe i samozatrudnienie: jak legalnie zacząć działalność', 'description' => 'Rejestracja Gewerbe, podatki i ubezpieczenia dla freelancerów i mikrofirm w Niemczech.'],
-
-    ['slug' => 'konto-bankowe-dla-emigranta', 'category' => 'finanse', 'title' => 'Konto bankowe w Niemczech: jak wybrać najlepsze dla emigranta', 'description' => 'Porównanie opłat, kart, przelewów i wymagań banków dla nowych mieszkańców Niemiec.'],
-    ['slug' => 'schufa-jak-dziala', 'category' => 'finanse', 'title' => 'SCHUFA: co to jest i jak poprawić swoją historię kredytową', 'description' => 'Praktyczny poradnik budowania wiarygodności finansowej w Niemczech krok po kroku.'],
-    ['slug' => 'klasy-podatkowe-niemcy', 'category' => 'finanse', 'title' => 'Klasy podatkowe w Niemczech: jak wybrać właściwą i płacić mniej', 'description' => 'Wyjaśniamy Steuerklassen i kiedy opłaca się zmiana klasy podatkowej.'],
-    ['slug' => 'budzet-domowy-w-euro', 'category' => 'finanse', 'title' => 'Budżet domowy emigranta: jak kontrolować wydatki w euro', 'description' => 'System planowania finansów dla rodzin i singli mieszkających w Niemczech.'],
-    ['slug' => 'kredyt-samochodowy-niemcy', 'category' => 'finanse', 'title' => 'Kredyt samochodowy w Niemczech: warunki i pułapki umów', 'description' => 'Na co zwrócić uwagę przy finansowaniu auta i jak obniżyć koszt całkowity kredytu.'],
-    ['slug' => 'emerytura-w-niemczech-dla-polakow', 'category' => 'finanse', 'title' => 'Emerytura w Niemczech dla Polaków: składki, staż i wypłata', 'description' => 'Jak liczy się emerytura, jakie dokumenty gromadzić i jak połączyć okresy pracy.'],
-
-    ['slug' => 'jak-znalezc-mieszkanie-berlin', 'category' => 'mieszkanie', 'title' => 'Jak znaleźć mieszkanie w Niemczech: skuteczna strategia od A do Z', 'description' => 'Proces najmu, dokumenty i negocjacje z wynajmującym na konkurencyjnym rynku.'],
-    ['slug' => 'umowa-najmu-co-sprawdzic', 'category' => 'mieszkanie', 'title' => 'Umowa najmu w Niemczech: co sprawdzić zanim podpiszesz Mietvertrag', 'description' => 'Najważniejsze klauzule, koszty dodatkowe i prawa lokatora.'],
-    ['slug' => 'kaucja-i-nebenkosten', 'category' => 'mieszkanie', 'title' => 'Kaucja i Nebenkosten: jak nie przepłacić za mieszkanie', 'description' => 'Jak działa kaucja, rozliczenia kosztów dodatkowych i procedura zwrotu depozytu.'],
-    ['slug' => 'meldunek-po-przeprowadzce', 'category' => 'mieszkanie', 'title' => 'Meldunek po przeprowadzce: obowiązki lokatora w Niemczech', 'description' => 'Terminy i formalności po zmianie adresu, aby uniknąć kar administracyjnych.'],
-    ['slug' => 'media-i-internet-po-umowie', 'category' => 'mieszkanie', 'title' => 'Media i internet po podpisaniu umowy najmu: praktyczny setup', 'description' => 'Elektryczność, gaz, internet i ubezpieczenia mieszkania krok po kroku.'],
-    ['slug' => 'wypowiedzenie-najmu-niemcy', 'category' => 'mieszkanie', 'title' => 'Wypowiedzenie najmu w Niemczech: terminy, wzór i odbiór lokalu', 'description' => 'Jak bezpiecznie zakończyć najem i odzyskać kaucję bez konfliktu.'],
-
-    ['slug' => 'koszty-zycia-niemcy-2026', 'category' => 'zycie', 'title' => 'Koszty życia w Niemczech 2026: realne wydatki i plan minimum', 'description' => 'Ile kosztuje życie w Niemczech i jak ustawić budżet już od pierwszego miesiąca.'],
-    ['slug' => 'opieka-zdrowotna-na-co-dzien', 'category' => 'zycie', 'title' => 'Opieka zdrowotna na co dzień: lekarz rodzinny, specjaliści i recepty', 'description' => 'Jak korzystać z niemieckiej służby zdrowia bez stresu i zbędnych kosztów.'],
-    ['slug' => 'szkola-i-przedszkole-dla-dzieci', 'category' => 'zycie', 'title' => 'Szkoła i przedszkole w Niemczech: praktyczny przewodnik dla rodziców', 'description' => 'Zapisy, dokumenty i wsparcie językowe dla dzieci polskich rodzin.'],
-    ['slug' => 'integracja-i-jezyk-w-praktyce', 'category' => 'zycie', 'title' => 'Integracja i język: jak szybciej odnaleźć się w niemieckiej codzienności', 'description' => 'Skuteczne metody nauki języka i budowania relacji lokalnie.'],
-    ['slug' => 'transport-publiczny-i-auto', 'category' => 'zycie', 'title' => 'Transport publiczny i samochód w Niemczech: co się bardziej opłaca', 'description' => 'Koszty biletów, paliwa i ubezpieczenia auta dla mieszkańców dużych i małych miast.'],
-    ['slug' => 'bezpieczenstwo-i-prawo-konsumenta', 'category' => 'zycie', 'title' => 'Bezpieczeństwo i prawa konsumenta w Niemczech: praktyka na co dzień', 'description' => 'Jak reagować na oszustwa, reklamacje i nieuczciwe umowy.'],
-  ];
-}
-
-function articleFaq(string $title): array
-{
-  return [
-    ['q' => 'Od czego najlepiej zacząć wdrożenie wskazówek z artykułu?', 'a' => 'Zacznij od przygotowania listy dokumentów i terminów. W praktyce największe opóźnienia wynikają z braków formalnych, więc pierwszy tydzień poświęć na porządek administracyjny.'],
-    ['q' => 'Jak uniknąć najczęstszych błędów nowych emigrantów?', 'a' => 'Najczęściej pomaga prowadzenie jednego folderu z dokumentami, potwierdzeniami i umowami. Drugą zasadą jest czytanie warunków umów przed podpisaniem, szczególnie zapisów o wypowiedzeniu i opłatach dodatkowych.'],
-    ['q' => 'Czy wskazówki z poradnika działają w każdym landzie?', 'a' => 'Zasady ogólne są takie same, ale procedury lokalnych urzędów i terminy bywają różne. Zawsze sprawdź stronę właściwej instytucji dla swojego miasta.'],
-    ['q' => 'Kiedy warto skorzystać z pomocy doradcy?', 'a' => 'Gdy sprawa dotyczy podatków, prawa pracy lub sporów najmu i wiąże się z większą kwotą. Jedna konsultacja zwykle kosztuje mniej niż błąd popełniony bez wsparcia.'],
-    ['q' => 'Jak szybko uporządkować sytuację po przeprowadzce do Niemiec?', 'a' => 'Najlepiej działa plan 30 dni: meldunek, konto, ubezpieczenie, umowa pracy i budżet. Potem dopiero optymalizuj koszty i rozwijaj kolejne obszary.'],
-  ];
+  return articleMetadata();
 }
 
 function buildSections(array $article): array
@@ -112,13 +68,23 @@ function buildSections(array $article): array
   ];
 }
 
+
+function articleFaq(string $title): array
+{
+  return [
+    ['q' => 'Od czego zacząć temat: ' . $title . '?', 'a' => 'Zacznij od sprawdzenia aktualnych wymagań lokalnych i przygotowania checklisty dokumentów.'],
+    ['q' => 'Jakie dokumenty przygotować?', 'a' => 'Najczęściej potrzebne są dokument tożsamości, potwierdzenie adresu i formularze właściwego urzędu lub instytucji.'],
+    ['q' => 'Czy procedura różni się między miastami?', 'a' => 'Tak, szczegóły i terminy mogą się różnić, dlatego potwierdź je na stronie lokalnej instytucji.'],
+  ];
+}
+
 function getArticles(): array
 {
   $articles = [];
   foreach (articleBlueprints() as $base) {
     $base['sections'] = buildSections($base);
     $base['faq'] = articleFaq($base['title']);
-    $base['updated_at'] = '2026-01-15';
+    $base['updated_at'] = $base['date'];
     $articles[$base['slug']] = $base;
   }
   return $articles;

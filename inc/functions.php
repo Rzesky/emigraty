@@ -41,6 +41,24 @@ function breadcrumbs(array $items): string
   return $html . "\n";
 }
 
+
+function articleThumbUrl(array $article): string
+{
+  $thumb = $article['thumb'] ?? '';
+  if (is_string($thumb) && $thumb !== '') {
+    return url($thumb);
+  }
+  return url('/assets/img/thumbs/fallback.svg');
+}
+
+function renderArticleThumb(array $article, string $class = 'article-thumb'): string
+{
+  $src = htmlspecialchars(articleThumbUrl($article));
+  $fallback = htmlspecialchars(url('/assets/img/thumbs/fallback.svg'));
+  $alt = htmlspecialchars($article['title'] ?? 'Miniatura artykułu');
+  return '<figure class="' . htmlspecialchars($class) . '"><img src="' . $src . '" alt="' . $alt . '" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=\'' . $fallback . '\';"></figure>';
+}
+
 function articlesByCategory(string $category): array
 {
   return array_values(array_filter(getArticles(), fn($a) => $a['category'] === $category));

@@ -13,6 +13,7 @@ require_once __DIR__ . '/functions.php';
       <a href="<?= url('/finanse/') ?>">Finanse</a>
       <a href="<?= url('/mieszkanie/') ?>">Mieszkanie</a>
       <a href="<?= url('/zycie/') ?>">Życie</a>
+      <a href="<?= url('/narzedzia/kalkulator-zarobkow/') ?>">Kalkulator zarobków</a>
       <a href="<?= url('/poradniki/') ?>">Wszystkie poradniki</a>
       <a href="<?= url('/kontakt/') ?>">Kontakt</a>
     </nav>

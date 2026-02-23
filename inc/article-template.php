@@ -90,7 +90,7 @@ $related = relatedArticles($article['slug']);
     <div class="article-grid">
       <?php foreach ($related as $item): ?>
         <a class="article-card" href="<?= articleUrl($item) ?>">
-          <div class="article-thumb" aria-hidden="true"></div>
+          <?= renderArticleThumb($item) ?>
           <span class="tag"><?= htmlspecialchars(CATEGORIES[$item['category']]['name']) ?></span>
           <strong><?= htmlspecialchars($item['title']) ?></strong>
           <p><?= htmlspecialchars($item['description']) ?></p>

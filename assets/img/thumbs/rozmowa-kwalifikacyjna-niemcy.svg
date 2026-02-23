@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="hsl(333 70% 88%)"/><stop offset="1" stop-color="hsl(13 72% 78%)"/></linearGradient></defs>
+<rect width="1280" height="720" fill="url(#g)"/>
+<rect x="80" y="80" width="1120" height="560" rx="36" fill="rgba(255,255,255,.45)"/>
+<text x="140" y="390" font-size="52" fill="#0f172a" font-family="Arial,sans-serif">rozmowa kwalifikacyjna niemcy</text>
+</svg>

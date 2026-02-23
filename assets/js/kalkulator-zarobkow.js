@@ -85,7 +85,13 @@
     } catch (e) { /* ignore */ }
   };
 
-  fetch(root.dataset.salariesUrl)
+  const salariesUrl = root.dataset.salariesUrl;
+  if (!salariesUrl) {
+    console.error('[Emigraty Kalkulator] Brak data-salaries-url na #earnings-calculator. Ustaw poprawny URL do salaries.json.');
+    return;
+  }
+
+  fetch(salariesUrl)
     .then((r) => r.json())
     .then((data) => {
       records = data.records || [];

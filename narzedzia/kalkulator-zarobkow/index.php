@@ -27,7 +27,7 @@ $structuredDataJson = json_encode($faqSchema, JSON_UNESCAPED_UNICODE | JSON_UNES
     <p>Symulator netto, kosztów życia i czasu odkładania do celu. Wyniki mają charakter orientacyjny.</p>
   </section>
 
-  <section class="calculator-grid" id="earnings-calculator" data-salaries-url="/data/salaries.json">
+  <section class="calculator-grid" id="earnings-calculator" data-salaries-url="<?= url('/data/salaries.json') ?>">
     <form class="calculator-form" autocomplete="off">
       <div class="calc-fields">
         <label>Kraj
